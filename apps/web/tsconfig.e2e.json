@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es2023",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "types": ["node"],
+    "skipLibCheck": true,
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": [
+    "playwright.config.ts",
+    "playwright.release.config.ts",
+    "playwright.noauth.config.ts",
+    "e2e/**/*.ts",
+    "e2eRuntimeConfig.ts",
+    "e2eRuntimeConfig.test.ts"
+  ]
+}

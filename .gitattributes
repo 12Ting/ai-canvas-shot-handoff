@@ -1,0 +1,2 @@
+# Keep literal CRLF for cmd.exe, including GitHub source ZIPs.
+start.cmd -text whitespace=trailing-space,space-before-tab,cr-at-eol

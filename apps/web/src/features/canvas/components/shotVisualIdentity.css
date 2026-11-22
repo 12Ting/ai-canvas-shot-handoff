@@ -1,0 +1,230 @@
+.shot-thumbnail {
+  display: grid;
+  width: calc(100% - 20px);
+  aspect-ratio: 16 / 9;
+  margin: 10px;
+  overflow: hidden;
+  place-items: center;
+  border: 1px solid #51485d;
+  border-radius: 8px;
+  color: #a9ad9f;
+  background:
+    linear-gradient(135deg, #17141b 0 50%, #1d1923 50% 100%);
+  font-size: 11px;
+  text-align: center;
+}
+
+.shot-thumbnail img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #09080b;
+  transition: transform 140ms ease;
+}
+
+.shot-thumbnail:not(.shot-thumbnail--compact)[data-thumbnail-state="ready"] {
+  width: 50%;
+  aspect-ratio: auto;
+  margin-inline: auto;
+}
+
+.shot-thumbnail:not(.shot-thumbnail--compact)[data-thumbnail-state="ready"] img {
+  height: auto;
+  object-fit: contain;
+}
+
+.semantic-node--shot:hover .shot-thumbnail img {
+  transform: scale(1.015);
+}
+
+.shot-thumbnail[data-thumbnail-state="error"] {
+  border-color: #774942;
+  color: #f1b3aa;
+  background: #2b1918;
+}
+
+.shot-thumbnail--compact {
+  flex: 0 0 64px;
+  width: 64px;
+  height: 42px;
+  margin: 0;
+  aspect-ratio: auto;
+  border-radius: 6px;
+  font-size: 9px;
+}
+
+.shot-node__identity,
+.shot-inspector__identity,
+.shot-track__labels {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.shot-node__identity {
+  margin-right: auto;
+}
+
+.shot-stable-id {
+  overflow: hidden;
+  color: #bba6d3;
+  font-family: ui-monospace, "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.055em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.shot-inspector__identity .shot-stable-id {
+  margin-bottom: 2px;
+}
+
+.shot-track ol {
+  overflow-x: auto;
+}
+
+.shot-track li {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  min-width: 255px;
+}
+
+.shot-track__header-actions {
+  margin-left: auto;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 6px;
+}
+
+.shot-track__select {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+}
+
+.shot-track__actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.shot-track__actions button {
+  width: 100%;
+  min-width: 0;
+}
+
+.shot-track li .shot-track__actions > button {
+  text-align: center;
+}
+
+.shot-track__labels {
+  text-align: left;
+}
+
+.shot-track__labels strong {
+  color: #ece9e2;
+  font-size: 12px;
+}
+
+.shot-track li,
+.shot-inspector__references > li {
+  position: relative;
+  cursor: grab;
+  transition: opacity 120ms ease;
+}
+
+.shot-track li.is-dragging,
+.shot-inspector__references > li.is-dragging {
+  cursor: grabbing;
+  opacity: 0.56;
+}
+
+.shot-track li.is-drop-before::before,
+.shot-track li.is-drop-after::after {
+  position: absolute;
+  z-index: 2;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  border-radius: 2px;
+  content: "";
+  background: #f8d56b;
+  box-shadow: 0 0 0 1px #1b151f, 0 0 10px rgb(248 213 107 / 0.85);
+  pointer-events: none;
+}
+
+.shot-track li.is-drop-before::before {
+  left: 0;
+}
+
+.shot-track li.is-drop-after::after {
+  right: 0;
+}
+
+.shot-inspector__references > li.is-drop-before::before,
+.shot-inspector__references > li.is-drop-after::after {
+  position: absolute;
+  z-index: 2;
+  right: 6px;
+  left: 6px;
+  height: 3px;
+  border-radius: 2px;
+  content: "";
+  background: #f8d56b;
+  box-shadow: 0 0 0 1px #1b151f, 0 0 10px rgb(248 213 107 / 0.85);
+  pointer-events: none;
+}
+
+.shot-inspector__references > li.is-drop-before::before {
+  top: 0;
+}
+
+.shot-inspector__references > li.is-drop-after::after {
+  bottom: 0;
+}
+
+.shot-track__reorder-status,
+.shot-inspector__reorder-status {
+  position: absolute;
+  z-index: 4;
+  max-width: min(100% - 24px, 340px);
+  margin: 0;
+  padding: 6px 9px;
+  border: 1px solid #f8d56b;
+  border-radius: 6px;
+  color: #fff9e1;
+  background: rgb(29 23 34 / 0.96);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.35);
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.shot-track__reorder-status {
+  right: 12px;
+  bottom: calc(100% + 8px);
+}
+
+.shot-inspector__reorder-status {
+  right: 12px;
+  bottom: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shot-thumbnail img {
+    transition: none;
+  }
+
+  .semantic-node--shot:hover .shot-thumbnail img {
+    transform: none;
+  }
+
+  .shot-track li,
+  .shot-inspector__references > li {
+    transition: none;
+  }
+}

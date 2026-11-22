@@ -1,0 +1,307 @@
+.shot-inspector.floating-panel--active,
+.shot-track.floating-panel--active,
+.shot-history.floating-panel--active {
+  box-sizing: border-box;
+  right: auto !important;
+  bottom: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  overflow: hidden;
+  transition:
+    border-color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.shot-inspector.floating-panel--active {
+  display: flex;
+  flex-direction: column;
+}
+
+.shot-history.floating-panel--active {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0;
+}
+
+.shot-history.floating-panel--active > header {
+  position: static;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+}
+
+.shot-history.floating-panel--active .shot-history__list {
+  min-height: 0;
+  overflow: auto;
+  padding-bottom: 44px;
+}
+
+.shot-history.floating-panel--active footer {
+  position: static;
+  flex: 0 0 auto;
+  padding-inline-end: 56px;
+}
+
+.shot-inspector--empty.floating-panel--active {
+  padding: 0;
+}
+
+.shot-inspector.floating-panel--active .shot-inspector__header {
+  position: static;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+}
+
+.shot-inspector.floating-panel--active .shot-inspector__content {
+  min-height: 0;
+  overflow: auto;
+  padding-bottom: 54px;
+}
+
+.shot-track.floating-panel--active {
+  display: flex;
+  flex-direction: column;
+}
+
+.shot-track.floating-panel--active .shot-track__header {
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+}
+
+.shot-track[data-track-state="collapsed"].floating-panel--active .shot-track__header {
+  margin-bottom: 0;
+}
+
+.shot-track[data-track-state="collapsed"].floating-panel--active {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.shot-track[data-track-state="collapsed"].floating-panel--active ol,
+.shot-track[data-track-state="collapsed"].floating-panel--active .shot-track__reorder-status {
+  display: none;
+}
+
+.shot-track.floating-panel--active ol {
+  min-height: 0;
+  padding-right: 14px;
+  padding-bottom: 0;
+}
+
+.shot-track.floating-panel--active > .floating-panel__edge-grip--top::after {
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  width: 40px;
+  height: 3px;
+  border-radius: 999px;
+  content: "";
+  background: color-mix(in srgb, var(--focus) 58%, #7d8375);
+  transform: translateX(-50%);
+}
+
+.shot-track[data-track-state="collapsed"].floating-panel--active > .floating-panel__edge-grip--top {
+  right: 0;
+  left: 0;
+}
+
+.shot-track[data-track-state="collapsed"].floating-panel--active > .floating-panel__edge-grip--top::after {
+  top: auto;
+  bottom: 0;
+  width: min(160px, 40%);
+  transform: translateX(-50%);
+}
+
+.floating-panel__title-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.floating-panel__move-handle,
+.floating-panel__resize-handle {
+  min-width: 44px;
+  min-height: 44px;
+  touch-action: none;
+  user-select: none;
+}
+
+.floating-panel__move-handle {
+  cursor: move;
+}
+
+.floating-panel__resize-handle {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border-radius: 9px 0 9px 0;
+  cursor: nwse-resize;
+  font-size: 18px;
+}
+
+.floating-panel__move-handle:focus-visible,
+.floating-panel__resize-handle:focus-visible,
+.floating-panel__reset:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.floating-panel__drag-region {
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.floating-panel__drag-region:active {
+  cursor: grabbing;
+}
+
+.floating-panel__drag-region:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: -3px;
+}
+
+.floating-panel__drag-region :is(button, input, textarea, select, a) {
+  cursor: pointer;
+}
+
+.floating-panel__edge-grip {
+  position: absolute;
+  z-index: 4;
+  display: block;
+  touch-action: none;
+  user-select: none;
+  transition: background-color 120ms ease, box-shadow 120ms ease;
+}
+
+.shot-track button.floating-panel__edge-grip {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  background: transparent;
+}
+
+.shot-track button.floating-panel__edge-grip:hover:not(:disabled) {
+  border: 0;
+  background: color-mix(in srgb, var(--focus) 45%, transparent);
+}
+
+.shot-track button.floating-panel__edge-grip:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: -3px;
+}
+
+.floating-panel__edge-grip:hover {
+  background: color-mix(in srgb, var(--focus) 45%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--focus) 75%, transparent);
+}
+
+.floating-panel__edge-grip--top,
+.floating-panel__edge-grip--bottom {
+  right: 14px;
+  left: 14px;
+  height: 12px;
+}
+
+.floating-panel__edge-grip--top {
+  top: 0;
+  cursor: ns-resize;
+}
+
+.floating-panel__edge-grip--bottom {
+  bottom: 0;
+  cursor: ns-resize;
+}
+
+.floating-panel__edge-grip--left,
+.floating-panel__edge-grip--right {
+  top: 14px;
+  bottom: 14px;
+  width: 12px;
+}
+
+.floating-panel__edge-grip--left {
+  left: 0;
+  cursor: ew-resize;
+}
+
+.floating-panel__edge-grip--right {
+  right: 0;
+  cursor: ew-resize;
+}
+
+.floating-panel__edge-grip--top-left,
+.floating-panel__edge-grip--top-right,
+.floating-panel__edge-grip--bottom-left,
+.floating-panel__edge-grip--bottom-right {
+  z-index: 5;
+  width: 18px;
+  height: 18px;
+}
+
+.floating-panel__edge-grip--top-left {
+  top: 0;
+  left: 0;
+  cursor: nwse-resize;
+}
+
+.floating-panel__edge-grip--top-right {
+  top: 0;
+  right: 0;
+  cursor: nesw-resize;
+}
+
+.floating-panel__edge-grip--bottom-left {
+  bottom: 0;
+  left: 0;
+  cursor: nesw-resize;
+}
+
+.floating-panel__edge-grip--bottom-right {
+  right: 0;
+  bottom: 0;
+  cursor: nwse-resize;
+}
+
+@media (pointer: coarse) {
+  .floating-panel__edge-grip--top,
+  .floating-panel__edge-grip--bottom {
+    right: 22px;
+    left: 22px;
+    height: 22px;
+  }
+
+  .floating-panel__edge-grip--left,
+  .floating-panel__edge-grip--right {
+    top: 22px;
+    bottom: 22px;
+    width: 22px;
+  }
+
+  .floating-panel__edge-grip--top-left,
+  .floating-panel__edge-grip--top-right,
+  .floating-panel__edge-grip--bottom-left,
+  .floating-panel__edge-grip--bottom-right {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shot-inspector.floating-panel--active,
+  .shot-track.floating-panel--active,
+  .shot-history.floating-panel--active {
+    transition: none;
+  }
+
+  .floating-panel__edge-grip {
+    transition: none;
+  }
+}

@@ -1,0 +1,10 @@
+.c3-agent-panel, .c3-profile-panel { display: grid; gap: .55rem; min-width: 18rem; }
+.c3-agent-panel label, .c3-profile-panel label { display: grid; gap: .25rem; font-size: .76rem; }
+.c3-agent-panel input, .c3-agent-panel select, .c3-agent-panel textarea,
+.c3-profile-panel input, .c3-profile-panel select { max-width: 100%; box-sizing: border-box; }
+.c3-agent-panel__offsets, .c3-profile-panel__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+.c3-agent-panel__plan { border: 1px solid var(--line); border-radius: .65rem; padding: .6rem; }
+.c3-agent-panel__plan dl { display: grid; gap: .3rem; margin: .4rem 0; }
+.c3-agent-panel__plan dl div { display: grid; grid-template-columns: 6rem minmax(0, 1fr); gap: .4rem; }
+.c3-agent-panel__plan dd { margin: 0; overflow-wrap: anywhere; }
+@media (max-width: 720px) { .c3-agent-panel, .c3-profile-panel { min-width: 0; } .c3-agent-panel__offsets, .c3-profile-panel__grid { grid-template-columns: 1fr; } }

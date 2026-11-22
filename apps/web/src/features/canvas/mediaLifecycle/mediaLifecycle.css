@@ -1,0 +1,17 @@
+.media-lifecycle { background: var(--canvas-panel, #171a21); border: 1px solid var(--canvas-border, #586070); border-radius: 12px; box-shadow: 0 10px 32px rgb(0 0 0 / 35%); color: var(--canvas-text, #f2f4f8); max-height: calc(100vh - 88px); overflow: auto; padding: 14px; position: fixed; right: 16px; top: 72px; width: min(360px, calc(100vw - 32px)); z-index: 50; }
+.media-lifecycle h2, .media-lifecycle h3 { margin: 0 0 8px; }
+.media-lifecycle section { border-top: 1px solid rgb(255 255 255 / 14%); margin-top: 12px; padding-top: 12px; }
+.media-lifecycle button { margin: 4px 6px 4px 0; }
+.media-lifecycle__launcher { flex: 0 0 auto; }
+.media-lifecycle__header { align-items: center; display: flex; justify-content: space-between; }
+.media-lifecycle__section-heading { align-items: center; display: flex; justify-content: space-between; }
+.media-lifecycle__metrics { display: grid; gap: 6px; grid-template-columns: 1fr 1fr; margin: 8px 0; }
+.media-lifecycle__metrics div { display: grid; gap: 2px; }
+.media-lifecycle__metrics dt { color: #b7c0d0; font-size: 12px; }
+.media-lifecycle__metrics dd { margin: 0; }
+.media-lifecycle__reference { margin-top: 8px; }
+.media-lifecycle__dialog { align-items: center; background: rgb(0 0 0 / 55%); display: flex; inset: 0; justify-content: center; position: fixed; z-index: 100; }
+.media-lifecycle__dialog-card { background: #20242d; border: 1px solid #687184; border-radius: 12px; max-width: 520px; padding: 20px; }
+.media-lifecycle__dialog-card code { overflow-wrap: anywhere; }
+.media-lifecycle__dialog-actions { display: flex; gap: 8px; margin-top: 12px; }
+.media-lifecycle__upload-progress { color: #d5e5ff; }

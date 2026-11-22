@@ -1,0 +1,68 @@
+.shot-history__sources {
+  display: grid;
+  flex: 1 1 auto;
+  align-content: start;
+  gap: 14px;
+  min-height: 0;
+  overflow-y: auto;
+  padding-block-end: calc(56px + 1rem);
+}
+
+.shot-history__source {
+  min-width: 0;
+}
+
+.shot-history__source > h3 {
+  margin: 0 12px 8px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.shot-history__source .shot-history__list {
+  overflow: visible;
+  padding-bottom: 0;
+}
+
+.shot-history__source .shot-history__list button bdi {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.shot-history__association-list > li {
+  display: grid;
+  gap: 6px;
+  padding: 8px;
+  border: 1px solid #46503e;
+  border-radius: 8px;
+  background: #171b15;
+}
+
+.shot-history__event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+.shot-history__event-meta time {
+  flex-basis: 100%;
+}
+
+.shot-history__load-more {
+  width: calc(100% - 24px);
+  margin: 10px 12px 0;
+}
+
+.shot-history.floating-panel--active .shot-history__sources {
+  padding-block-end: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shot-history__sources {
+    scroll-behavior: auto;
+  }
+}
